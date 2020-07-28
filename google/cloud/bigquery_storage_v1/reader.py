@@ -648,7 +648,6 @@ class _ArrowStreamParser(_StreamParser):
 
     def _parse_arrow_message(self, message):
         self._parse_arrow_schema()
-
         return pyarrow.ipc.read_record_batch(
             pyarrow.py_buffer(message.arrow_record_batch.serialized_record_batch),
             self._schema,
